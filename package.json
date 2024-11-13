@@ -4,13 +4,16 @@
   "description": "![Design preview for the IP address tracker coding challenge](./design/desktop-preview.jpg)",
   "main": "script.js",
   "scripts": {
-    "start":"parcel index.html --open --no-cache",
-    "build":"parcel build index.html --out-dir=build"
+    "start": "parcel index.html --open --no-cache",
+    "build": "parcel build index.html --out-dir=build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "parcel": "^2.12.0"
+  },
+  "dependencies": {
+    "@2gis/mapgl": "^1.53.0"
   }
 }
