@@ -10,9 +10,11 @@ const timezoneInfo = document.querySelector('#timezone');
 const isp = document.querySelector('#isp');
 
 const mapContainer = document.querySelector('#map')
+let latGl,lngGl;
 
 btn.addEventListener('click', getData);
 ipInput.addEventListener('keydown', handleKey);
+window.addEventListener('resize',rebuildMap)
 
 
 function getData(){
@@ -31,18 +33,26 @@ function handleKey(e){
     }
 }
 
+
+//  BUILDING MAP
+
+
 function showInfo(data){
     console.log(data)
-    const {lat, lng, country, region, timezone} = data.location;
+    const {country, region, timezone} = data.location;
+    latGl = data.location.lat;
+    lngGl = data.location.lng;
     idInfo.innerText = data.ip;
     locationInfo.innerText = country +' '+ region;
     timezoneInfo.innerText = timezone;
     isp.innerText = data.isp;
 
-    buildMap(lat,lng)
+    buildMap(latGl,lngGl)
 }
 
+
 function buildMap(lat,lng){
+    
     mapContainer.innerHTML = '';
     load().then((mapglAPI) => {
         let map = new mapglAPI.Map('map', {
@@ -54,4 +64,8 @@ function buildMap(lat,lng){
             coordinates: [lng, lat],
         })
     })
+}
+
+function rebuildMap(){
+    buildMap(latGl,lngGl)
 }
