@@ -1,4 +1,5 @@
-import { validateIp } from "./helpers";
+import 'babel-polyfill'
+import { validateIp, getAddress} from "./helpers";
 import {load} from "@2gis/mapgl";
 
 const ipInput = document.querySelector('.search-bar__input');
@@ -20,10 +21,9 @@ window.addEventListener('resize',rebuildMap)
 function getData(){
     // checking data
     if (validateIp(ipInput.value)){
-        console.log('Hello!')
-        fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_xtyj2jQEjBLEdQgJvM4vCtonDYkNF&ipAddress=${ipInput.value}`)
-            .then(response => response.json())
-            .then(showInfo);
+        console.log('Hello!')  
+        getAddress(ipInput.value)
+        .then(showInfo)  
     }
 }
 
