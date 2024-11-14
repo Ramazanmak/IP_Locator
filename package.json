@@ -5,7 +5,7 @@
   "main": "script.js",
   "scripts": {
     "start": "parcel index.html --open --no-cache",
-    "build": "parcel build index.html --no-cache",
+    "build": "parcel build index.html",
     "predeploy":"npm run build",
     "deploy": "vercel --prod"
   },
