@@ -2,10 +2,9 @@
   "name": "ip_locator",
   "version": "1.0.0",
   "description": "![Design preview for the IP address tracker coding challenge](./design/desktop-preview.jpg)",
-  "main": "script.js",
   "scripts": {
     "start": "parcel index.html --open --no-cache",
-    "build": "parcel build index.html",
+    "build": "parcel build index.html --no-cache",
     "predeploy":"npm run build",
     "deploy": "vercel --prod"
   },
